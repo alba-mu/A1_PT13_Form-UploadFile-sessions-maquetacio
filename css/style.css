@@ -60,7 +60,7 @@ body {
 
 .navbar .nav-link:hover,
 .navbar .nav-link.active {
-    color: #e0e0ff !important;
+    color: var(--base-color) !important;
 }
 
 /* === ENCABEZADO === */
