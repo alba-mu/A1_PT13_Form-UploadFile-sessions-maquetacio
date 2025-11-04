@@ -79,7 +79,9 @@ define("PATH_TO_UPLOADED_FILES", BASE_PATH . "/img/");
                     echo '<p class="mt-4"><a href="' . BASE_URL . '/formularios/404subidaIndex.php" class="btn btn-mediumslateblue text-white">Subir otro archivo</a></p>';
                 }
             } else {
-                echo "<p>El formulario no ha sido enviado.</p>";
+                echo "<div class='alert alert-warning'>
+                        El formulario no ha sido enviado.
+                        </div>";
             }
             ?>
         </div>
