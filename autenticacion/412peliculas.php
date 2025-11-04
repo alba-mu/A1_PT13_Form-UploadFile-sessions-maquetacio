@@ -17,6 +17,24 @@ if (!isset($_SESSION['usuario'])) {
 
 <!-- Contenido principal -->
 <main class="container my-5">
+    <!-- Introducción -->
+    <section class="mb-5">
+        <div class="p-5 rounded-4 shadow-soft bg-light">
+            <h1 class="text-center fw-bold mb-3">
+                Ejercicio Login - Logout
+            </h1>
+
+            <p class="lead">
+                Si el usuario <strong>está logeado</strong>, se muestra la <strong>lista de películas o series</strong> guardadas en sesión y una 
+                <strong>barra de menú</strong> para navegar entre las dos páginas, así como también para cerrar sesión.
+            </p>
+
+            <p class="lead mt-3">
+                Si el usuario <strong>no está logeado</strong>, se muestra un <strong>mensaje de error</strong> indicando que debe iniciar sesión 
+                para poder ver el contenido de la página.
+            </p>
+        </div>
+    </section>
 
     <?php if ($error): ?>
         <!-- Mensaje de error -->
