@@ -1,54 +1,60 @@
 <?php
-    // Recuperamos la información de la sesión
-    if(!isset($_SESSION)) {
-        session_start();
-    }
+session_start();
 
-    // Y comprobamos que el usuario se haya autentificado
-    if (!isset($_SESSION['usuario'])) {
-        $error = "  <p class='error'>Error - No estás identificado.</p>
-                    <p>Debes identificarte para poder acceder al contenido de la página.</p>
-                    <p class='boton'><a href='410index.php'>Iniciar Sesión</a></p>";
-    } else {
-        $error = null;
-    }
+// Configuración de página
+$page_title = "Ejercicio Login-Logout — Listado de Series";
+$current_page = "autenticacion";
+require_once __DIR__ . '/../config.php';
+include BASE_PATH . '/includes/header.php';
+
+// --- Comprobación de sesión ---
+if (!isset($_SESSION['usuario'])) {
+    $error = true;
+} else {
+    $error = false;
+}
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de series</title>
-    <link rel="stylesheet" href="./styles.css"/>
-</head>
-<body>
-    <?php if (!isset($error)) : ?>
-        <div class="layout">
-            <nav class="menu">
-                <ul>
-                    <li><a href="412peliculas.php">Películas</a></li>
-                    <li><a href="414series.php">Series</a></li>
-                    <li><a href="413logout.php">Cerrar sesión</a></li>
-                </ul>
-                <span class="usuario">Bienvenido, <?= $_SESSION['usuario']?></span>
+
+<!-- Contenido principal -->
+<main class="container my-5">
+
+    <?php if ($error): ?>
+        <!-- Mensaje de error -->
+        <section class="text-center p-5 rounded-4 bg-light shadow-soft">
+            <h1 class="fw-bold text-danger mb-3">Acceso denegado</h1>
+            <p class="lead mb-4">
+                No estás identificado. Debes iniciar sesión para acceder al contenido de esta página.
+            </p>
+            <a href="410index.php" class="btn btn-mediumslateblue px-4">Iniciar sesión</a>
+        </section>
+
+    <?php else: ?>
+        <!-- Contenido del listado -->
+        <section class="mb-4">
+            <nav class="navbar navbar-expand-lg bg-mediumslateblue rounded-4 shadow-sm mb-4">
+                <div class="container-fluid justify-content-between text-white">
+                    <ul class="navbar-nav d-flex flex-row gap-3">
+                        <li class="nav-item"><a href="412peliculas.php" class="nav-link text-white fw-semibold">Películas</a></li>
+                        <li class="nav-item"><a href="414series.php" class="nav-link text-white fw-semibold">Series</a></li>
+                        <li class="nav-item"><a href="413logout.php" class="nav-link text-white fw-semibold">Cerrar sesión</a></li>
+                    </ul>
+                    <span class="fw-semibold">
+                        Bienvenido, <?= htmlspecialchars($_SESSION['usuario']) ?>
+                    </span>
+                </div>
             </nav>
 
-            <main>
-                <h1>Listado de Series</h1>
-                <ul class="alinear-izquierda">
-                    <?php foreach ($_SESSION['series'] as $serie) :?>
-                        <li><?= $serie ?></li>
-                    <?php endforeach;?>
+            <div class="p-5 bg-light rounded-4 shadow-soft">
+                <h1 class="fw-bold text-mediumslateblue mb-4 text-center">Listado de Series</h1>
+                <ul class="list-group list-group-flush w-75 mx-auto">
+                    <?php foreach ($_SESSION['series'] as $serie): ?>
+                        <li class="list-group-item"><?= htmlspecialchars($serie) ?></li>
+                    <?php endforeach; ?>
                 </ul>
-            </main>
-        </div>
-    <?php else : ?>
-        <div class="error-wrapper">
-            <div class="container-error">
-                <div><?= $error ?></div>
             </div>
-        </div>
+        </section>
     <?php endif; ?>
-    
-</body>
-</html>
+
+</main>
+
+<?php include BASE_PATH . '/includes/footer.php'; ?>

@@ -19,21 +19,21 @@ include BASE_PATH . '/includes/header.php';
             </h3>
 
             <p class="lead">
-                Este bloque consistió en crear un formulario de <strong>login</strong> que permitiera el acceso solo 
+                Este bloque consiste en crear un formulario de <strong>login</strong> que permite el acceso solo 
                 a los usuarios con credenciales válidas. Una vez validado el inicio de sesión, los datos del usuario, 
                 junto con los listados de películas y series, se almacenaban en la <strong>sesión</strong> 
                 para poder mostrarlos en diferentes páginas.
             </p>
 
             <p class="lead">
-                También se implementó un sistema de <strong>control de acceso</strong> que impedía entrar directamente 
+                También se implementa un sistema de <strong>control de acceso</strong> que impide entrar directamente 
                 en las vistas privadas sin haber iniciado sesión previamente, asegurando así la protección del contenido. 
-                Además, se añadió una funcionalidad de <strong>logout</strong> que destruía la sesión activa y 
-                redirigía al formulario de inicio.
+                Además, se añade una funcionalidad de <strong>logout</strong> que destruye la sesión activa y 
+                redirige al formulario de inicio.
             </p>
 
             <p class="lead">
-                Este ejercicio permitió aplicar los conocimientos sobre el manejo de sesiones en un 
+                Este ejercicio permite aplicar los conocimientos sobre el manejo de sesiones en un 
                 <strong>caso práctico de autenticación básica</strong>, combinando validación de formularios, 
                 persistencia de datos y control de flujo entre páginas.
             </p>
