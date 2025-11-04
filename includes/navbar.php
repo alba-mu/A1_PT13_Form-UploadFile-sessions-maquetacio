@@ -23,28 +23,28 @@ if (!defined('BASE_PATH')) {
         <!-- Enlaces del menú -->
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
+                <li class="nav-item p-2">
                     <a href="<?= BASE_URL ?>index.php" 
                        class="nav-link <?= ($current_page == 'inicio') ? 'active' : ''; ?>">
                         Inicio
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item p-2">
                     <a href="<?= BASE_URL ?>formularios/formularios.php" 
                        class="nav-link <?= ($current_page == 'formularios') ? 'active' : ''; ?>">
-                        Formularios
+                        Ejercicios Formularios
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item p-2">
                     <a href="<?= BASE_URL ?>cookies_session/cookies_session.php" 
                        class="nav-link <?= ($current_page == 'cookies_session') ? 'active' : ''; ?>">
-                        Cookies y Sesión
+                        Ejercicios Cookies y Sesiones
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item p-2">
                     <a href="<?= BASE_URL ?>autenticacion/autenticacion.php" 
                        class="nav-link <?= ($current_page == 'autenticacion') ? 'active' : ''; ?>">
-                        Autenticación
+                        Ejercicios Autenticación
                     </a>
                 </li>
             </ul>
