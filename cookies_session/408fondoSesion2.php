@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+// Configuración de página
+$page_title = "Ejercicio 408 - Mostrar color (sesión)";
+$current_page = "cookies_session";
+require_once __DIR__ . '/../config.php';
+include BASE_PATH . '/includes/header.php';
+
 // Variable que guardará el color actual
 $color = "";
 
@@ -9,24 +15,50 @@ if (isset($_SESSION['color'])) {
     $color = $_SESSION['color'];
 }
 ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Color de la página (Sesión)</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            background: <?= htmlspecialchars($color ?: 'white') ?>;
-        }
-    </style>
-</head>
-<body>
-    <h1>Mostrar el color seleccionado</h1>
 
-    <p>Color actual: <strong><?= htmlspecialchars($color ?: 'ninguno') ?></strong></p>
+<main class="container py-5">
+    <!-- Introducción -->
+    <section class="mb-5">
+        <div class="p-5 rounded-4 shadow-soft bg-light">
+            <h1 class="text-center fw-bold mb-3">
+                Ejercicio 408 — Mostrar color (sesión)
+            </h1>
+            <p class="lead">
+                Esta página muestra el <strong>color de fondo</strong> actualmente almacenado en la 
+                <strong>sesión</strong>, que fue seleccionado en el archivo anterior 
+                <code>408fondoSesion1.php</code>.  
+                Desde aquí puedes <strong>volver</strong> al formulario de selección o 
+                <strong>borrar la sesión</strong> para reiniciar el color.
+            </p>
+        </div>
+    </section>
 
-    <a href="408fondoSesion1.php">Volver al formulario de selección</a><br>
-    <a href="408vaciarSesion.php">Borrar sesión y volver</a>
-</body>
-</html>
+    <!-- Contenido principal -->
+    <section class="card shadow-sm">
+        <div class="card-body text-center py-5" style="background-color: <?= htmlspecialchars($color ?: 'white') ?>;">
+            <h2 class="fw-bold text-mediumslateblue mb-4">Color actual</h2>
+
+            <p class="fs-4 mb-4">
+                <?php if ($color): ?>
+                    El color guardado es: 
+                    <strong class="text-dark"><?= htmlspecialchars($color) ?></strong>
+                <?php else: ?>
+                    No hay ningún color seleccionado actualmente.
+                <?php endif; ?>
+            </p>
+
+            <div class="d-flex justify-content-center gap-3">
+                <a href="408fondoSesion1.php" class="btn btn-mediumslateblue text-white px-4">
+                    Volver al formulario
+                </a>
+                <a href="408vaciarSesion.php" class="btn btn-mediumslateblue text-white px-4">
+                    Borrar sesión y volver
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<?php
+include BASE_PATH . '/includes/footer.php';
+?>
