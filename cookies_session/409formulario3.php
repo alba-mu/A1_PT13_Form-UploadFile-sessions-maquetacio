@@ -107,6 +107,9 @@ $form_content = [
                                         }
                                     } else {
                                         // Si empieza por "Error", lo mostramos en rojo
+                                        if ($content === '') {
+                                            $content = "Error - Valor no introducido";
+                                        }
                                         $es_error = stripos($content, 'error') !== false;
                                         $clase = $es_error ? 'text-danger fw-semibold' : '';
                                         echo "<span class='$clase'>" . htmlspecialchars($content) . "</span>";
