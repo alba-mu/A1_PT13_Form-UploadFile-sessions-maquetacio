@@ -1,4 +1,10 @@
-<?php 
+<?php
+// Configuración y cabecera
+$page_title = "Color de fondo (cookies)";
+$current_page = "cookies_session";
+require_once __DIR__ . '/../config.php';
+include BASE_PATH . '/includes/header.php';
+
 // Lista de colores disponibles
 $colores = [
     ["name" => "palegreen", "displayName" => "Pale Green"], 
@@ -20,37 +26,54 @@ elseif (isset($_COOKIE['color'])) {
     $color = $_COOKIE['color'];
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Color de la página</title>
-    <style>
-        body {
-            background: <?= htmlspecialchars($color ?: 'white') ?>;
-        }
-    </style>
-</head>
-<body>
-    <h1>Determinar el color de la página</h1>
 
-    <form method="POST">
-        <fieldset>
-            <legend>Color de fondo</legend>
-            <p>Selecciona el color de fondo que quieres usar para esta página</p>
-            <select name="color" id="color">
-                <option value="">-- Selecciona --</option>
-                <?php foreach ($colores as $c): ?>
-                    <option value="<?= $c["name"] ?>" 
-                        <?= ($c["name"] === $color) ? 'selected' : '' ?>>
-                        <?= $c["displayName"] ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-        </fieldset>
-        <p>
-            <input type="submit" value="Guardar color">
-        </p>
-    </form>
-</body>
-</html>
+<main class="container py-5" style="background-color: <?= htmlspecialchars($color ?: 'white') ?>; transition: background-color 0.4s ease;">
+
+    <!-- Introducción -->
+    <section class="mb-5">
+        <div class="p-5 rounded-4 shadow-soft bg-light">
+            <h1 class="text-center fw-bold mb-3">
+                Ejercicio 407 — Color de fondo (cookies)
+            </h1>
+            <p class="lead">
+                En este ejercicio se utilizan <strong>cookies</strong> para permitir que el usuario elija el 
+                <strong>color de fondo</strong> de la página mediante un menú desplegable.  
+                El color seleccionado se guarda durante al menos 24 horas, de forma que al volver a visitar la página,
+                ésta recuerde y muestre el último color elegido automáticamente.
+            </p>
+        </div>
+    </section>
+
+    <!-- Formulario de selección de color -->
+    <section class="text-center">
+        <div class="card shadow-sm border-0 mx-auto" style="max-width: 500px;">
+            <div class="card-body p-4">
+                <h2 class="text-mediumslateblue fw-semibold mb-4">Selecciona un color de fondo</h2>
+
+                <form method="POST" class="d-flex flex-column align-items-center">
+                    <div class="mb-3 w-75">
+                        <label for="color" class="form-label fw-semibold">Color de fondo</label>
+                        <select name="color" id="color" class="form-select text-center">
+                            <option value="">-- Selecciona --</option>
+                            <?php foreach ($colores as $c): ?>
+                                <option value="<?= htmlspecialchars($c["name"]) ?>"
+                                    <?= ($c["name"] === $color) ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($c["displayName"]) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-mediumslateblue text-white px-4 py-2 rounded-3 shadow-sm">
+                        Guardar color
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<?php
+// Footer
+include BASE_PATH . '/includes/footer.php';
+?>

@@ -10,7 +10,7 @@ include BASE_PATH . '/includes/header.php';
 
     <!-- Introducción -->
     <section class="mb-5">
-        <div class="p-5 shadow-soft">
+        <div class="p-5 rounded-4 shadow-soft bg-light">
             <h1 class="text-center fw-bold mb-4">Ejercicio 404 - Subida de archivos</h1>
             <p class="lead">
                 Crea un formulario que permita <strong>subir un archivo al servidor</strong>. 
