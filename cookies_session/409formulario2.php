@@ -131,7 +131,8 @@ $_SESSION["menus_dict"] = $menus;
 
             <!-- Aficiones -->
             <fieldset class="mb-4">
-                <legend class="fw-semibold text-mediumslateblue">Aficiones (selecciona mínimo 4)</legend>
+                <legend class="fw-semibold text-mediumslateblue">Aficiones</legend>
+                <label class="form-label">Selecciona qué te gusta hacer en tu tiempo libre (mínimo 4):</label>
                 <div class="row">
                     <?php foreach ($aficiones as $value => $displayName) : ?>
                         <div class="col-md-4">

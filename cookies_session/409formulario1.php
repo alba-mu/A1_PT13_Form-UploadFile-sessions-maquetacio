@@ -40,21 +40,21 @@ include BASE_PATH . '/includes/header.php';
                 <fieldset class="mb-4">
                     <legend class="fw-semibold text-mediumslateblue">Nombre y apellidos</legend>
                     <div class="mb-3">
-                        <input type="text" name="nom" class="form-control" placeholder="Ej. Alba" required>
+                        <input type="text" name="nom" class="form-control" placeholder="Nombre" required>
                     </div>
                     <div class="mb-3">
-                        <input type="text" name="cognoms" class="form-control" placeholder="Ej. Fernández Pérez" required>
+                        <input type="text" name="cognoms" class="form-control" placeholder="Apellidos" required>
                     </div>
                 </fieldset>
 
                 <fieldset class="mb-4">
                     <legend class="fw-semibold text-mediumslateblue">Email</legend>
-                    <input type="email" name="email" class="form-control" placeholder="Ej. example@gmail.com" required>
+                    <input type="email" name="email" class="form-control" placeholder="ejemplo@gmail.com" required>
                 </fieldset>
 
                 <fieldset class="mb-4">
                     <legend class="fw-semibold text-mediumslateblue">URL personal</legend>
-                    <input type="url" name="url" class="form-control" placeholder="Ej. http://ejemplo.com">
+                    <input type="url" name="url" class="form-control" placeholder="http://ejemplo.com">
                 </fieldset>
 
                 <fieldset class="mb-4">
